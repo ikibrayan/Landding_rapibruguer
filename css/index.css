@@ -1,0 +1,146 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fafafa;
+  color: #333;
+}
+
+header {
+  background-image: url('../img/banner.png');
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+section {
+  padding: 1.5rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.selector-categorias,
+.formulario select,
+#categoriaSelect {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+
+.producto {
+  background: white;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.producto-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.producto-info {
+  flex: 1;
+  min-width: 220px;
+}
+
+.producto-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.producto-info p {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.precio {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.cantidad-control button {
+  padding: 5px 10px;
+  font-size: 16px;
+  background: #457b9d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formulario input,
+.formulario select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.formulario {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+}
+
+.carrito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+}
+
+button.enviar {
+  background: green;
+  font-size: 18px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .producto {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .producto-img {
+    width: 100%;
+    height: auto;
+  }
+}
