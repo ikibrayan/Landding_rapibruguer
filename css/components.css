@@ -1,31 +1,4 @@
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fafafa;
-  color: #333;
-}
-
-header {
-  background-image: url('../img/banner.png');
-  color: white;
-  padding: 1.5rem;
-  text-align: center;
-}
-
-section {
-  padding: 1.5rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-h2 {
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 0.5rem;
-}
-
 .selector-categorias,
-.formulario select,
 #categoriaSelect {
   width: 100%;
   padding: 10px;
@@ -36,6 +9,7 @@ h2 {
   margin-bottom: 15px;
 }
 
+/* Productos */
 .producto {
   background: white;
   margin: 1rem 0;
@@ -86,33 +60,22 @@ h2 {
 }
 
 .cantidad-control button {
-  padding: 5px 10px;
-  font-size: 16px;
-  background: #457b9d;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+padding: 5px 12px;
+font-size: 16px;
+background: #D97B48;         /* Terracota estilo mediterráneo */
+color: white;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+transition: background 0.3s ease;
 }
 
-.formulario input,
-.formulario select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+.cantidad-control button:hover {
+background: #b05f36;         /* Más oscuro al pasar el mouse */
 }
+  
 
-.formulario {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  margin-top: 2rem;
-}
-
+/* Carrito */
 .carrito {
   display: flex;
   flex-direction: column;
@@ -124,23 +87,11 @@ h2 {
 }
 
 button.enviar {
-  background: green;
+  background:#D97B48;
   font-size: 18px;
   padding: 12px 24px;
   border: none;
   border-radius: 6px;
   color: white;
   cursor: pointer;
-}
-
-@media (max-width: 600px) {
-  .producto {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .producto-img {
-    width: 100%;
-    height: auto;
-  }
 }

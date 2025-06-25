@@ -95,17 +95,6 @@ const productos = [
 const carrito = {};
 let categoriaActual = '';
 
-function renderSelectorCategorias() {
-  const seccion = document.getElementById('menu');
-  const categorias = ['hamburguesa', 'pizza', 'taco', 'burrito'];
-  const div = document.createElement('div');
-  div.className = 'selector-categorias';
-  div.innerHTML = categorias.map(cat => `
-    <button onclick="filtrarCategoria('${cat}')">${cat.charAt(0).toUpperCase() + cat.slice(1)}</button>
-  `).join('');
-  seccion.insertBefore(div, document.getElementById('productos'));
-}
-
 function filtrarCategoria(cat) {
   categoriaActual = cat;
   renderProductos();
@@ -151,47 +140,41 @@ function actualizarTotal() {
   document.getElementById('total').innerText = total.toLocaleString();
 }
 
-function enviarPedido() {
-  const nombre = document.getElementById('nombre').value.trim();
-  const direccion = document.getElementById('direccion').value.trim();
-  const telefono = document.getElementById('telefono').value.trim();
-  const entrega = document.getElementById('entrega').value;
-  const pago = document.getElementById('pago').value;
-
-  if (!nombre || !direccion || !telefono) {
-    alert('Por favor completa todos los datos del cliente.');
-    return;
-  }
-
-  let mensaje = `Hola, quiero hacer un pedido:\n`;
+function guardarYContinuar() {
+  const resumen = [];
   let total = 0;
 
   productos.forEach((p, i) => {
     if (carrito[i] > 0) {
       const subtotal = p.precio * carrito[i];
-      mensaje += `• ${p.nombre} x${carrito[i]} – $${subtotal.toLocaleString()}\n`;
+      resumen.push({
+        nombre: p.nombre,
+        cantidad: carrito[i],
+        subtotal
+      });
       total += subtotal;
     }
   });
 
-  mensaje += `\nTotal: $${total.toLocaleString()}\n`;
-  mensaje += `\n Dirección: ${direccion}`;
-  mensaje += `\n Nombre: ${nombre}`;
-  mensaje += `\n Tel: ${telefono}`;
-  mensaje += `\n Entrega: ${entrega}`;
-  mensaje += `\n Pago: ${pago}`;
+  if (resumen.length === 0) {
+    alert("No has agregado productos al carrito.");
+    return;
+  }
 
-  const numero = '15551553934';  // Cambiar por el número real
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, '_blank');
+  const pedido = {
+    resumen,
+    total
+  };
+
+  sessionStorage.setItem("pedido", JSON.stringify(pedido));
+  window.location.href = "customer.html";
 }
-
-
-
 
 document.getElementById('categoriaSelect').addEventListener('change', (e) => {
   categoriaActual = e.target.value;
   renderProductos();
 });
+
+// Inicialización
 categoriaActual = 'hamburguesa';
 renderProductos();
