@@ -95,3 +95,28 @@ button.enviar {
   color: white;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .producto {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .producto-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .producto-info {
+    width: 100%;
+    min-width: unset;
+    padding-top: 10px;
+  }
+
+  .cantidad-control {
+    justify-content: center;
+  }
+}
+

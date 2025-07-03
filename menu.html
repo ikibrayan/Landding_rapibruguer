@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurante - Pedido Rápido</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/card.css">
+</head>
+<body>
+
+<header>
+  <h1 class="titulo-principal">Bienvenido a RappiBurguer</h1>
+  <p class="subtitulo">Realiza tu pedido de manera rápida y sencilla</p>
+</header>
+  
+
+<section id="menu">
+  <h2>Menú</h2>
+  
+  <div style="display: flex; flex-direction: column; margin-bottom: 15px; max-width: 300px;">
+    <label for="categoriaSelect" style="font-weight: bold; margin-bottom: 5px;">Elegir categoría:</label>
+    <select id="categoriaSelect" style="text-align: left;">
+        <option value="hamburguesa">Hamburguesas</option>
+        <option value="pizza">Pizzas</option>
+        <option value="taco">Tacos</option>
+        <option value="burrito">Burritos</option>
+    </select>
+  </div>
+  
+  <div id="productos"></div>
+</section>
+
+<section class="carrito">
+  <h2>Total: $<span id="total">0</span></h2>
+  <button class="enviar" onclick="guardarYContinuar()">Realizar Pedido</button>
+</section>
+
+
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-button" onclick="cerrarModal()">×</span>
+    <img id="modal-img" src="" alt="" />
+    <div class="modal-body">
+      <h3 id="modal-titulo"></h3>
+      <p id="modal-descripcion"></p>
+      <p id="modal-detalle" style="font-style: italic; color: #555;"></p>
+      <p class="precio" id="modal-precio"></p>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="./js/menu.js"></script>
+
+</body>
+</html>

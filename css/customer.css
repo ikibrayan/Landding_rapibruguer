@@ -59,3 +59,20 @@ button.enviar:hover {
   background: #b05f36;
   transform: scale(1.03);
 }
+
+button.volver {
+  margin-top: 1rem;
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #D97B48;
+  border: 2px solid #D97B48;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button.volver:hover {
+  background-color: #D97B48;
+  color: white;
+}

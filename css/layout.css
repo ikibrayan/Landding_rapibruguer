@@ -1,5 +1,5 @@
 header {
-    background-image: url('../img/banner.jpg'); /* asegúrate que sea el path correcto */
+    background-image: url('../img/banner.webp'); /* asegúrate que sea el path correcto */
     background-size: cover;
     background-position: center 65%; /* muestra parte inferior */
     height: 250px; /* controla cuánto se ve de la imagen */
