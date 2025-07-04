@@ -2,42 +2,26 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurante - Pedido Rápido</title>
-  <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" href="./css/layout.css">
-  <link rel="stylesheet" href="./css/components.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restaurante - Bienvenido</title>
+  <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 
-<header>
-  <h1 class="titulo-principal">Bienvenido a RappiBurguer</h1>
-  <p class="subtitulo">Realiza tu pedido de manera rápida y sencilla</p>
-</header>
-  
-
-<section id="menu">
-  <h2>Menú</h2>
-  
-  <div style="display: flex; flex-direction: column; margin-bottom: 15px; max-width: 300px;">
-    <label for="categoriaSelect" style="font-weight: bold; margin-bottom: 5px;">Elegir categoría:</label>
-    <select id="categoriaSelect" style="text-align: left;">
-        <option value="hamburguesa">Hamburguesas</option>
-        <option value="pizza">Pizzas</option>
-        <option value="taco">Tacos</option>
-        <option value="burrito">Burritos</option>
-    </select>
+  <div class="slider">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1553621042-f6e147245754');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');"></div>
   </div>
-  
-  <div id="productos"></div>
-</section>
 
-<section class="carrito">
-  <h2>Total: $<span id="total">0</span></h2>
-  <button class="enviar" onclick="guardarYContinuar()">Realizar Pedido</button>
-</section>
+  <div class="content">
+    <img src="./img/logo.png" alt="Logo RapiBurger" style="width: 200px;" />
 
-<script src="./js/index.js"></script>
+    <h1>Bienvenido a RapiBurger, tu mejor experiencia en comida rápida</h1>
+    <a href="./menu.html" class="boton">Ver Menú</a>
+    <footer>&copy; 2025 RapiBurger</footer>
+  </div>
 
+  <script src="/js/index.js"></script>
 </body>
 </html>
