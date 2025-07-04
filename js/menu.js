@@ -214,4 +214,3 @@ function mostrarModal(prod) {
 function cerrarModal() {
   document.getElementById('modal').classList.add('hidden');
 }
-
