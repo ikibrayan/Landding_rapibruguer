@@ -46,7 +46,11 @@
   }
 
   h1 {
+<<<<<<< HEAD
     font-size: 2.5em;
+=======
+    font-size: 2 em;
+>>>>>>> 2fc064a8f2537f13187dcf05724850f2e258d5b0
     margin-bottom: 20px;
     max-width: 90%;
   }
