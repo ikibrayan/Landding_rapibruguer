@@ -1,17 +1,19 @@
 header {
-    background-image: url('../img/banner.webp'); /* asegúrate que sea el path correcto */
-    background-size: cover;
-    background-position: center 65%; /* muestra parte inferior */
-    height: 250px; /* controla cuánto se ve de la imagen */
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem;
-    overflow: hidden;
-  }
-  
+  background-image: url('../img/banner.webp');
+  background-size: cover;            /* ocupa todo el ancho */
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 250px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+
   
   section {
     padding: 1.5rem;
