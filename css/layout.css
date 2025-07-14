@@ -31,5 +31,10 @@ header {
       width: 100%;
       height: auto;
     }
+
+    header {
+      background-image: url('../img/bannermovil.webp');
+      height: 300px;
+    }
   }
   

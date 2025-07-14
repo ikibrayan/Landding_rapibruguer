@@ -87,13 +87,18 @@ background: #b05f36;         /* Más oscuro al pasar el mouse */
 }
 
 button.enviar {
-  background:#D97B48;
+  background:#25D366;
   font-size: 18px;
   padding: 12px 24px;
   border: none;
   border-radius: 6px;
   color: white;
   cursor: pointer;
+}
+
+button.enviar:hover {
+  background: #1ebe5d;
+  transform: scale(1.03);
 }
 
 @media (max-width: 600px) {

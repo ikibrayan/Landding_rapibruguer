@@ -29,7 +29,7 @@
 
 
 button.enviar {
-  background: #D97B48;
+  background: #25D366;
   font-size: 17px;
   padding: 12px 26px;
   border: none;
@@ -46,18 +46,12 @@ button.enviar {
 }
 
 button.enviar:hover {
-  background: #b05f36;
+  background: #1ebe5d;
   transform: scale(1.03);
 }
 
 button.enviar i {
   font-size: 18px;
-}
-
-
-button.enviar:hover {
-  background: #b05f36;
-  transform: scale(1.03);
 }
 
 button.volver {
