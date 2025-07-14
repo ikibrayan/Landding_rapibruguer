@@ -12,30 +12,34 @@
 </head>
 <body>
 
-<header>
- 
-</header>
-  
+<header></header>
 
 <section id="menu" style="text-align: center;">
   <h2>Menú</h2>
-  
- <div class="botones-categorias">
-  <button onclick="filtrarCategoria('hamburguesa')">
-    <img src="img/button1.png" alt="Hamburguesas" />
-  </button>
-  <button onclick="filtrarCategoria('pizza')">
-    <img src="img/button2.png" alt="Pizzas" />
-  </button>
-  <button onclick="filtrarCategoria('taco')">
-    <img src="img/button3.png" alt="Tacos" />
-  </button>
-  <button onclick="filtrarCategoria('burrito')">
-    <img src="img/button4.png" alt="Burritos" />
-  </button>
+
+<div class="carousel-categorias">
+  <div class="carousel-inner">
+    <button onclick="filtrarCategoria('hamburguesa')">
+      <img src="img/burguer.png" alt="Hamburguesas">
+      <span>Hamburguesas</span>
+    </button>
+    <button onclick="filtrarCategoria('pizza')">
+      <img src="img/pizza.png" alt="Pizzas">
+      <span>Pizzas</span>
+    </button>
+    <button onclick="filtrarCategoria('taco')">
+      <img src="img/tacos.png" alt="Tacos">
+      <span>Tacos</span>
+    </button>
+    <button onclick="filtrarCategoria('burrito')">
+      <img src="img/perro.png" alt="Burritos">
+      <span>Burritos</span>
+    </button>
+  </div>
 </div>
 
-  
+
+
   <div id="productos"></div>
 </section>
 
@@ -43,7 +47,6 @@
   <h2>Total: $<span id="total">0</span></h2>
   <button class="enviar" onclick="guardarYContinuar()">Ordenar ahora <i class="fa-brands fa-whatsapp"></i></button>
 </section>
-
 
 <div id="modal" class="modal hidden">
   <div class="modal-content">
@@ -57,8 +60,6 @@
     </div>
   </div>
 </div>
-
-
 
 <script src="./js/menu.js"></script>
 

@@ -128,7 +128,6 @@ function renderProductos() {
   actualizarTotal();
 }
 
-
 function cambiarCantidad(index, delta) {
   carrito[index] = Math.max(0, carrito[index] + delta);
   document.getElementById(`cant_${index}`).innerText = carrito[index];
@@ -172,33 +171,20 @@ function guardarYContinuar() {
   sessionStorage.setItem("pedido", JSON.stringify(pedido));
   sessionStorage.setItem("carrito", JSON.stringify(carrito));
   sessionStorage.setItem("categoriaActual", categoriaActual);
-  
+
   window.location.href = "customer.html";
 }
 
-document.getElementById('categoriaSelect').addEventListener('change', (e) => {
-  categoriaActual = e.target.value;
-  renderProductos();
-});
-
-
+// Restaurar estado previo
 const carritoGuardado = sessionStorage.getItem("carrito");
 if (carritoGuardado) {
   Object.assign(carrito, JSON.parse(carritoGuardado));
 }
 
 const categoriaGuardada = sessionStorage.getItem("categoriaActual");
-if (categoriaGuardada) {
-  categoriaActual = categoriaGuardada;
-} else {
-  categoriaActual = 'hamburguesa';
-}
+categoriaActual = categoriaGuardada || 'hamburguesa';
 
-document.getElementById('categoriaSelect').value = categoriaActual;
-
-// Renderizar productos ya con datos restaurados
 renderProductos();
-
 
 function mostrarModal(prod) {
   document.getElementById('modal-img').src = prod.imagen;
@@ -209,7 +195,6 @@ function mostrarModal(prod) {
   document.getElementById('modal-precio').innerText = `Precio: $${prod.precio.toLocaleString()}`;
   document.getElementById('modal').classList.remove('hidden');
 }
-
 
 function cerrarModal() {
   document.getElementById('modal').classList.add('hidden');
