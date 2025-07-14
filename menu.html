@@ -17,18 +17,24 @@
 </header>
   
 
-<section id="menu">
+<section id="menu" style="text-align: center;">
   <h2>Menú</h2>
   
-  <div style="display: flex; flex-direction: column; margin-bottom: 15px; max-width: 300px;">
-    <label for="categoriaSelect" style="font-weight: bold; margin-bottom: 5px;">Elegir categoría:</label>
-    <select id="categoriaSelect" style="text-align: left;">
-        <option value="hamburguesa">Hamburguesas</option>
-        <option value="pizza">Pizzas</option>
-        <option value="taco">Tacos</option>
-        <option value="burrito">Burritos</option>
-    </select>
-  </div>
+ <div class="botones-categorias">
+  <button onclick="filtrarCategoria('hamburguesa')">
+    <img src="img/button1.png" alt="Hamburguesas" />
+  </button>
+  <button onclick="filtrarCategoria('pizza')">
+    <img src="img/button2.png" alt="Pizzas" />
+  </button>
+  <button onclick="filtrarCategoria('taco')">
+    <img src="img/button3.png" alt="Tacos" />
+  </button>
+  <button onclick="filtrarCategoria('burrito')">
+    <img src="img/button4.png" alt="Burritos" />
+  </button>
+</div>
+
   
   <div id="productos"></div>
 </section>
