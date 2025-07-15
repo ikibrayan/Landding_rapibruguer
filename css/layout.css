@@ -1,5 +1,5 @@
 header {
-  background-image: url('../img/banner1.jpeg');
+  background-image: url('../img/banner.webp');
   background-size: cover;            /* ocupa todo el ancho */
   background-position: center center;
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@ section {
   }
 
   header {
-    background-image: url('../img/bannerphone.jpeg');
+    background-image: url('../img/banner.webp');
     height: 300px;
   }
 }

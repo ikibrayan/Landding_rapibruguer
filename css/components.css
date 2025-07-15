@@ -109,7 +109,7 @@ button.enviar:hover {
   flex-wrap: wrap;         /* si en pantallas pequeñas no caben, pasan a otra fila */
 }
 
-..carousel-categorias {
+.carousel-categorias {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
