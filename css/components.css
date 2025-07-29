@@ -101,48 +101,51 @@ button.enviar:hover {
   transform: scale(1.03);
 }
 
-.botones-categorias {
-  display: flex;
-  justify-content: center; /* centrar horizontalmente */
-  gap: 20px;                /* espacio entre los botones */
-  margin: 1rem 0;           /* espacio vertical */
-  flex-wrap: wrap;         /* si en pantallas pequeñas no caben, pasan a otra fila */
+.carousel-categorias {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* deslizamiento suave en iOS */
+  scrollbar-width: none; /* ocultar scroll en Firefox */
 }
 
-.carousel-categorias {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
+.carousel-categorias::-webkit-scrollbar {
+  display: none; /* ocultar scroll en Chrome/Safari */
 }
 
 .carousel-inner {
   display: flex;
-  gap: 20px;
+  flex-wrap: nowrap; /* ✅ que no bajen de línea */
+  gap: 16px;
+  padding: 10px 16px;
 }
 
 .carousel-inner button {
+  flex: 0 0 auto;       /* ✅ no se expanden, se quedan en su tamaño */
+  width: 80px;
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: none;
-  background: none;
-  cursor: pointer;
 }
 
 .carousel-inner img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 
 .carousel-inner span {
-  margin-top: 8px;
-  font-size: 14px;
+  margin-top: 5px;
+  font-size: 13px;
 }
 
-
-.botones-categorias button:hover img {
+.carousel-inner button:hover img {
   transform: scale(1.05);
 }
+
+
 
 @media (max-width: 600px) {
   .producto {
