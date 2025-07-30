@@ -1,67 +1,39 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurante - Pedido Rápido</title>
-  <link rel="stylesheet" href="./css/base.css">
-  <link rel="stylesheet" href="./css/layout.css">
-  <link rel="stylesheet" href="./css/components.css">
-  <link rel="stylesheet" href="./css/card.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart UI</title>
+  <link rel="stylesheet" href="./css/components.css" />
 </head>
 <body>
 
-<header></header>
-
-<section id="menu" style="text-align: center;">
-  <h2>Menú</h2>
-
-<div class="carousel-categorias">
-  <div class="carousel-inner">
-    <button onclick="filtrarCategoria('hamburguesa')">
-      <img src="img/burguer-button.webp" alt="Hamburguesas">
-      <span>Hamburguesas</span>
-    </button>
-    <button onclick="filtrarCategoria('pizza')">
-      <img src="img/chicken-button.webp" alt="Pizzas">
-      <span>Pizzas</span>
-    </button>
-    <button onclick="filtrarCategoria('taco')">
-      <img src="img/hod-dog-button.webp" alt="Tacos">
-      <span>Tacos</span>
-    </button>
-    <button onclick="filtrarCategoria('burrito')">
-      <img src="img/potato-button.webp" alt="Burritos">
-      <span>Burritos</span>
-    </button>
+  <!-- HEADER -->
+  <div class="cart-header">
+    <button class="back-button">←</button>
+    <h2>MY CART</h2>
   </div>
-</div>
 
-
-
-  <div id="productos"></div>
-</section>
-
-<section class="carrito">
-  <h2>Total: $<span id="total">0</span></h2>
-  <button class="enviar" onclick="guardarYContinuar()">Ordenar ahora <i class="fa-brands fa-whatsapp"></i></button>
-</section>
-
-<div id="modal" class="modal hidden">
-  <div class="modal-content">
-    <span class="close-button" onclick="cerrarModal()">×</span>
-    <img id="modal-img" src="" alt="" />
-    <div class="modal-body">
-      <h3 id="modal-titulo"></h3>
-      <p id="modal-descripcion"></p>
-      <p id="modal-detalle" style="font-style: italic; color: #555;"></p>
-      <p class="precio" id="modal-precio"></p>
-    </div>
+  <div class="select-categorias">
+    <select id="categoriaSelect" onchange="filtrarCategoria(this.value)">
+      <option value="">Selecciona una categoría</option>
+      <option value="hamburguesa">🍔 Hamburguesas</option>
+      <option value="pizza">🍕 Pizzas</option>
+      <option value="taco">🌮 Tacos</option>
+      <option value="burrito">🌯 Burritos</option>
+    </select>
   </div>
-</div>
 
-<script src="./js/menu.js"></script>
 
+  <div class="cart-items"></div>
+
+  <!-- FOOTER -->
+  <div class="cart-footer">
+    <span>$28.55</span>
+    <button class="pay">Realizar Pedido</button>
+  </div>
+
+
+    <script src="./js/menu.js"></script>
 </body>
 </html>
