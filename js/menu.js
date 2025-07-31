@@ -93,16 +93,19 @@ const productos = [
 ];
 
 
-// 2. Carrito (clave: índice del producto, valor: cantidad)
+// Lista de productos filtrados para mostrar
+let productosFiltrados = [...productos];
+
+// Carrito: clave = índice del producto, valor = cantidad
 const carrito = {};
 
-// 3. Renderizar productos dinámicamente
+// Renderiza los productos en el carrito
 function renderCarrito() {
   const contenedor = document.querySelector('.cart-items');
   contenedor.innerHTML = '';
 
-  productos.forEach((producto, index) => {
-    // Inicializar cantidad si no existe
+  productosFiltrados.forEach((producto) => {
+    const index = productos.indexOf(producto);
     if (!(index in carrito)) carrito[index] = 1;
 
     const item = document.createElement('div');
@@ -125,32 +128,26 @@ function renderCarrito() {
     contenedor.appendChild(item);
   });
 
-  // Asignar eventos dinámicamente después de renderizar
+  // Asignar eventos a los botones
   document.querySelectorAll('.mas').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const i = parseInt(btn.dataset.id);
-      cambiarCantidad(i, 1);
-    });
+    btn.addEventListener('click', () => cambiarCantidad(parseInt(btn.dataset.id), 1));
   });
 
   document.querySelectorAll('.menos').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const i = parseInt(btn.dataset.id);
-      cambiarCantidad(i, -1);
-    });
+    btn.addEventListener('click', () => cambiarCantidad(parseInt(btn.dataset.id), -1));
   });
 
   actualizarTotal();
 }
 
-// 4. Cambiar cantidad
+// Cambia la cantidad de un producto en el carrito
 function cambiarCantidad(index, delta) {
   carrito[index] = Math.max(1, (carrito[index] || 1) + delta);
   document.getElementById(`cant_${index}`).textContent = carrito[index];
   actualizarTotal();
 }
 
-// 5. Total
+// Calcula y muestra el total del carrito
 function actualizarTotal() {
   let total = 0;
   for (const i in carrito) {
@@ -163,5 +160,39 @@ function actualizarTotal() {
   }
 }
 
-// 6. Iniciar
+// Filtra productos por categoría
+function filtrarCategoria(categoria) {
+  productosFiltrados = categoria === ''
+    ? [...productos]
+    : productos.filter(p => p.categoria === categoria);
+
+  renderCarrito();
+}
+
+// Evento del botón "Realizar Pedido"
+document.querySelector('.pay').addEventListener('click', () => {
+  const resumen = [];
+  let total = 0;
+
+  for (const i in carrito) {
+    const producto = productos[i];
+    const cantidad = carrito[i];
+    const subtotal = producto.precio * cantidad;
+
+    resumen.push({
+      nombre: producto.nombre,
+      cantidad,
+      subtotal
+    });
+
+    total += subtotal;
+  }
+
+  const pedido = { resumen, total };
+  localStorage.setItem('pedido', JSON.stringify(pedido));
+  window.location.href = 'customer.html';
+});
+
+// Iniciar la vista
 renderCarrito();
+
