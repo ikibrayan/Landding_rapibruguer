@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #1b1f34; /* Azul oscuro como fondo general */
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header */
+  .offers-header {
+    background: #2a2f47;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    justify-content: space-between;
+  }
+  
+  .offers-header .back-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 16px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .offers-header h2 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  
+  /* Offers */
+  .offers-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .offer-card {
+    background: #2e3350; /* Azul intermedio para las cards */
+    border-radius: 16px;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .offer-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  
+  .offer-info {
+    padding: 16px;
+  }
+  
+  .offer-info h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .offer-info p {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 12px;
+  }
+  
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .buy-btn {
+    background: #ff7d90;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .buy-btn:hover {
+    background: #e76378;
+  }
+  
+  /* Responsive */
+  @media (min-width: 768px) {
+    .offers-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .offer-card {
+      flex: 0 0 calc(33.333% - 20px);
+      margin: 10px;
+    }
+  
+    .offer-card img {
+      height: 200px;
+    }
+  }
+  

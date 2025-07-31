@@ -98,15 +98,29 @@ body {
 /* Tarjeta de producto */
 .product-card {
   width: 100%;
-  padding: 16px;
-  height: auto;
+  height: 160px; /* o el alto que prefieras */
+  padding: 2px;
   border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  transition: transform 0.2s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.2s ease;
+  position: relative;
+  background-color: #fff;
+}
+
+.card-subtitle {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
 
 .product-card:hover {
@@ -114,11 +128,12 @@ body {
 }
 
 .product-card img {
-  width: 80px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 16px;
 }
+
 
 /* Footer decorativo */
 .bottom-deco-footer {
