@@ -161,13 +161,15 @@ function actualizarTotal() {
 }
 
 // Filtra productos por categoría
-function filtrarCategoria(categoria) {
-  productosFiltrados = categoria === ''
-    ? [...productos]
-    : productos.filter(p => p.categoria === categoria);
+function filtrarBotonCategoria(boton, categoria) {
+  // Cambia visualmente el botón activo
+  document.querySelectorAll('.categoria-btn').forEach(btn => btn.classList.remove('active'));
+  boton.classList.add('active');
 
-  renderCarrito();
+  // Llama tu función original
+  filtrarCategoria(categoria);
 }
+
 
 // Evento del botón "Realizar Pedido"
 document.querySelector('.pay').addEventListener('click', () => {

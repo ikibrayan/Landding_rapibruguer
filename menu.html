@@ -13,15 +13,29 @@
     <h2>MENÚ</h2>
   </div>
 
-  <div class="select-categorias">
-    <select id="categoriaSelect" onchange="filtrarCategoria(this.value)">
-      <option value="">Selecciona una categoría</option>
-      <option value="hamburguesa">🍔 Hamburguesas</option>
-      <option value="pizza">🍕 Pizzas</option>
-      <option value="taco">🌮 Tacos</option>
-      <option value="burrito">🌯 Burritos</option>
-    </select>
-  </div>
+ <!-- CATEGORÍAS -->
+<!-- CATEGORÍAS -->
+<div class="categorias-container">
+  <button class="categoria-btn active" onclick="filtrarBotonCategoria(this, 'pizza')">
+    <img src="./img/pizza.png" alt="Pizza" />
+    <span>Pizza</span>
+  </button>
+  <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'steak')">
+    <img src="./img/steak.png" alt="Steak" />
+    <span>Steak</span>
+  </button>
+  <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'burger')">
+    <img src="./img/burger.png" alt="Burger" />
+    <span>Burger</span>
+  </button>
+  <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'chicken')">
+    <img src="./img/chicken.png" alt="Chicken" />
+    <span>Chicken</span>
+  </button>
+</div>
+
+
+
 
 
   <div class="cart-items"></div>
