@@ -170,6 +170,12 @@ function filtrarBotonCategoria(boton, categoria) {
   filtrarCategoria(categoria);
 }
 
+function filtrarCategoria(categoria) {
+  productosFiltrados = productos.filter(producto => producto.categoria === categoria);
+  renderCarrito();
+}
+
+
 
 // Evento del botón "Realizar Pedido"
 document.querySelector('.pay').addEventListener('click', () => {

@@ -42,7 +42,7 @@ body {
   gap: 12px;
   overflow-x: auto;
   padding: 16px;
-  background: #e4e6ef;
+  background: #1b1f34;
 }
 
 .categoria-btn {
@@ -51,22 +51,17 @@ body {
   align-items: center;
   justify-content: center;
   border: none;
-  background-color: #f1f1f1;
+  background-color: #2e3350;
   border-radius: 16px;
   padding: 8px 12px;
   min-width: 80px;
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.categoria-btn.active {
-  background-color: #ffd54f;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .categoria-btn:hover {
-  background-color: #ffe082;
+  background-color: #3a3f60;
 }
 
 .categoria-btn img {
@@ -74,14 +69,30 @@ body {
   height: 36px;
   object-fit: contain;
   margin-bottom: 6px;
-  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.1));
 }
 
 .categoria-btn span {
   font-size: 13px;
   font-weight: 600;
-  color: #2a2f47;
+  color: white;
   text-align: center;
+}
+
+/* Activo */
+.categoria-btn.active {
+  background-color: #ffd54f;
+  color: #2a2f47;
+  box-shadow: 0 0 10px rgba(255, 213, 79, 0.6);
+  transform: scale(1.05);
+}
+
+.categoria-btn.active span {
+  color: #2a2f47;
+}
+
+.categoria-btn.active img {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
 }
 
 /* Items */
@@ -106,7 +117,7 @@ body {
 
 .cart-item img {
   width: 100px;
-  height: 100px; 
+  height: 100px;
   border-radius: 12px;
   object-fit: cover;
 }
