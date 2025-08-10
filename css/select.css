@@ -19,7 +19,7 @@ body {
   background: #2a2f47;
   color: white;
   padding: 24px 16px 80px;
-  overflow: hidden;
+
   height: 200px;
 }
 
@@ -53,6 +53,23 @@ body {
   right: 0;
   bottom: 0;
   z-index: 1; /* delante de la curva */
+}
+
+.content {
+  display: flex;
+  flex-direction: column; /* apila título y subtítulo */
+  align-items: flex-start; /* alineado a la izquierda */
+  position: relative;
+  z-index: 2; /* asegurar que esté sobre la curva pero debajo del logo */
+}
+
+.content h1 {
+  margin-bottom: 5px;
+  font-size: 20px; /* espacio entre título y subtítulo */
+}
+
+.content p{
+  font-size: 15px;
 }
 
 /* Imagen dentro del círculo */
