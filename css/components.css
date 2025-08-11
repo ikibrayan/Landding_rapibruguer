@@ -42,7 +42,7 @@ body {
   gap: 12px;
   overflow-x: auto;
   padding: 16px;
-  background: #1b1f34;
+  background: #FFFFF5;
 }
 
 .categoria-btn {
@@ -97,7 +97,7 @@ body {
 
 /* Items */
 .cart-items {
-  background: #1b1f34;
+  background: #FFFFF5;
   flex: 1;
   overflow-y: auto;
   padding: 16px;

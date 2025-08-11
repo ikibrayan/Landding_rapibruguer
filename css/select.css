@@ -6,81 +6,34 @@
 }
 
 body {
-  background: #cfd5e2;
+  background: white;
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Header con curva SVG */
 .curved-header {
   position: relative;
-  background: #2a2f47;
-  color: white;
-  padding: 24px 16px 80px;
-
-  height: 200px;
+  background: black; /* color del header */
+  height: 125px; /* altura del header */
+  z-index: 0;
+  isolation: isolate; /* asegura que el z-index funcione como esperas */
 }
 
-/* Curva inferior */
 .curved-header::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: 0; /* en lugar de top */
   left: 0;
   width: 100%;
-  height: 150px; /* más alto = más profunda la curva */
-  background: #1b1f34; /* mismo color que el header */
-  border-radius: 50% 50% 0 0;
+  height: 150px; /* más alto = curva más profunda */
+  background: white; /* mismo color que el fondo de la página */
+  border-radius: 50% 50% 0 0; /* curva invertida hacia abajo */
   transform: translateY(50%);
+  z-index: -1; /* lo manda atrás */
+  pointer-events: none; /* no bloquea clics */
 }
-
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.content img {
-  max-width: 150px;
-  height: auto;
-}
-
-/* Imagen al frente */
-.front-img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 1; /* delante de la curva */
-}
-
-.content {
-  display: flex;
-  flex-direction: column; /* apila título y subtítulo */
-  align-items: flex-start; /* alineado a la izquierda */
-  position: relative;
-  z-index: 2; /* asegurar que esté sobre la curva pero debajo del logo */
-}
-
-.content h1 {
-  margin-bottom: 5px;
-  font-size: 20px; /* espacio entre título y subtítulo */
-}
-
-.content p{
-  font-size: 15px;
-}
-
-/* Imagen dentro del círculo */
-.logo-circle img {
-  background-color: white;
-  border-radius: 50%;
-  right: 20px;
-  height: 170px;
-  width: 200px;
-}
-
 
 
 /* Contenedor principal */
@@ -90,15 +43,26 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 24px 16px;
-  background: #1b1f34;
+  background: white;
+  z-index: 1; 
+}
+
+.app-container img{
+  height: 100px;
+}
+
+.app-container h1{
+  font-size: 20px;
+  font-family: cursive;
+  margin-bottom: 20px;
 }
 
 /* Título */
 .search-container h1 {
   color: white;
   font-size: 1.2rem;
-  margin-bottom: 24px;
   text-align: center;
+  margin-top: 150px;
 }
 
 /* Grid de productos - 2 columnas con más separación */
@@ -110,8 +74,8 @@ body {
 
 /* Tarjeta de producto rectangular, más alta */
 .product-card {
-  width: 100%;
-  height: 125px; /* ← Aumentado aquí para hacerla más larga */
+  width: 200px;
+  height: 150px; /* ← Aumentado aquí para hacerla más larga */
   padding: 12px;
   border-radius: 20px;
   overflow: hidden;
@@ -121,14 +85,14 @@ body {
   align-items: center;
   transition: transform 0.2s ease;
   position: relative;
-  background-color: #fff;
+  background-color: white;
 }
 
 /* Imagen centrada y ajustada */
 .product-card img {
   width: auto;
-  height: 90%;
-  object-fit: contain;
+  height: 200px;
+  object-fit: cover;
 }
 
 /* Subtítulo en esquina inferior izquierda */
@@ -148,6 +112,26 @@ body {
   transform: scale(1.05);
 }
 
+
+.curved-footer {
+  position: relative;
+  background: black; /* color del footer */
+  height: 125px; /* altura del footer */
+  z-index: 0;
+}
+
+.curved-footer::before {
+  content: "";
+  position: absolute;
+  top: 0; /* en lugar de bottom */
+  left: 0;
+  width: 100%;
+  height: 150px; /* más alto = curva más profunda */
+  background: white; /* mismo color que el footer */
+  border-radius: 0 0 50% 50%;
+  transform: translateY(-50%);
+  z-index: -1; /* lo manda atrás */
+}
 
 
 /* Responsive */
@@ -170,8 +154,5 @@ body {
     gap: 32px;
   }
 
-  .product-card {
-    height: 240px;
-  }
 }
 
