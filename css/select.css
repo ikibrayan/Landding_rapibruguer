@@ -28,7 +28,7 @@ body {
   left: 0;
   width: 100%;
   height: 150px; /* más alto = curva más profunda */
-  background: white; /* mismo color que el fondo de la página */
+  background: #E8E8E8; /* mismo color que el fondo de la página */
   border-radius: 50% 50% 0 0; /* curva invertida hacia abajo */
   transform: translateY(50%);
   z-index: -1; /* lo manda atrás */
@@ -43,7 +43,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 24px 16px;
-  background: white;
+  background: #E8E8E8;
   z-index: 1; 
 }
 
@@ -127,7 +127,7 @@ body {
   left: 0;
   width: 100%;
   height: 150px; /* más alto = curva más profunda */
-  background: white; /* mismo color que el footer */
+  background: #E8E8E8; /* mismo color que el footer */
   border-radius: 0 0 50% 50%;
   transform: translateY(-50%);
   z-index: -1; /* lo manda atrás */

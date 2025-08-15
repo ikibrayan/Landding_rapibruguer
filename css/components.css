@@ -116,8 +116,8 @@ body {
 }
 
 .cart-item img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 180px;
   border-radius: 12px;
   object-fit: cover;
 }
@@ -127,7 +127,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 170px;
 }
+
 
 .info h3 {
   font-size: 1rem;
