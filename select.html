@@ -7,35 +7,72 @@
   <link rel="stylesheet" href="./css/select.css" />
 </head>
 <body>
+
+  <header class="curved-header">
+
+  </header>
+
   <!-- Contenido principal -->
   <div class="app-container">
-    <!-- Lista de bebidas en columna -->
-    <h1>Elige alguna de las opciones</h1>
+  <img src="./img/logo.webp" alt="" class="mx-auto my-4 h-12">
+  <h1 class="text-center text-white text-lg mb-4">Elige alguna de las opciones</h1>
 
-    <div class="product-grid">
-      <div class="product-card" onclick="window.location.href='menu.html'">
-        <img src="./img/menu3.jpeg" alt="Menu" />
-        <span class="card-subtitle">Menú</span>
-      </div>
+  <!-- Carrusel -->
+  <div id="indicators-carousel" class="relative w-full max-w-[720px] mx-auto rounded-2xl overflow-hidden shadow-2xl" data-carousel="static">
+    <!-- Wrapper -->
+    <div class="relative h-64 md:h-96 overflow-hidden">
+      <!-- Slide 1 -->
+      <a href="menu.html" class="hidden duration-700 ease-in-out" data-carousel-item="active">
+        <img src="./img/menu3.jpeg" alt="Menú"
+             class="absolute block w-full h-full object-cover top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <span class="absolute bottom-4 left-4 px-4 py-2 rounded-full bg-white/90 text-gray-900 font-semibold">Menú</span>
+      </a>
 
-      <div class="product-card" onclick="window.location.href='offers.html'">
-        <img src="./img/offer-tag2.jpeg" alt="Ofertas" />
-        <span class="card-subtitle">Ofertas</span>
-      </div>
+      <!-- Slide 2 -->
+      <a href="offers.html" class="hidden duration-700 ease-in-out" data-carousel-item>
+        <img src="./img/offer-tag2.jpeg" alt="Ofertas"
+             class="absolute block w-full h-full object-cover top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <span class="absolute bottom-4 left-4 px-4 py-2 rounded-full bg-white/90 text-gray-900 font-semibold">Ofertas</span>
+      </a>
 
-      <div class="product-card" onclick="window.location.href='map.html'">
-        <img src="./img/map3.jpeg" alt="Mapa" />
-        <span class="card-subtitle">Mapa</span>
-      </div>
+      <!-- Slide 3 -->
+      <a href="map.html" class="hidden duration-700 ease-in-out" data-carousel-item>
+        <img src="./img/map3.jpeg" alt="Mapa"
+             class="absolute block w-full h-full object-cover top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <span class="absolute bottom-4 left-4 px-4 py-2 rounded-full bg-white/90 text-gray-900 font-semibold">Mapa</span>
+      </a>
     </div>
+
+    <!-- Indicadores -->
+    <div class="absolute z-30 flex -translate-x-1/2 space-x-3 bottom-4 left-1/2">
+      <button type="button" class="w-2.5 h-2.5 rounded-full bg-white/60" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+      <button type="button" class="w-2.5 h-2.5 rounded-full bg-white/40" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+      <button type="button" class="w-2.5 h-2.5 rounded-full bg-white/40" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+    </div>
+
+    <!-- Controles -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-3 group" data-carousel-prev>
+      <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/30 group-hover:bg-white/50">
+        <svg class="w-4 h-4 text-white" viewBox="0 0 6 10" fill="none"><path d="M5 1 1 5l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="sr-only">Anterior</span>
+      </span>
+    </button>
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-3 group" data-carousel-next>
+      <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/30 group-hover:bg-white/50">
+        <svg class="w-4 h-4 text-white" viewBox="0 0 6 10" fill="none"><path d="m1 9 4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="sr-only">Siguiente</span>
+      </span>
+    </button>
   </div>
+</div>
 
-  <footer class="curved-footer">
-    <div class="footer-content">
+
   
-    </div>
-  </footer>
-
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 
 </body>
 </html>
