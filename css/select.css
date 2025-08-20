@@ -1,98 +1,106 @@
-/* Reset y configuración base */
-* {
+/* ======================
+   ESTILOS BASE (MOBILE FIRST)
+   ====================== */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background: #e6e6e6;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-body {
-  background: white;
-  font-family: 'Segoe UI', sans-serif;
+.container {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-.curved-header {
-  position: relative;
-  background: black; /* color del header */
-  height: 125px; /* altura del header */
-  z-index: 0;
-  isolation: isolate; /* asegura que el z-index funcione como esperas */
+/* Encabezado más circular y más abajo */
+.header {
+  background: #000;
+  color: #ff6600;
+  text-align: center;
+
+  height: 225px;                /* alto fijo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom-left-radius: 50% 100px; 
+  border-bottom-right-radius: 50% 100px;
+}
+
+.img-header{
+  height: 80px;
 }
 
 
-.curved-header::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 150px; /* más alto = curva más profunda */
-  background: #E8E8E8;
-  border-radius: 50% 50% 0 0;
-  transform: translateY(50%);
-  z-index: -1;
-  pointer-events: none;
+.header h1 {
+  margin: 0;
+  font-size: 22px;
 }
 
-/* Contenedor principal */
-.app-container {
+.header span {
+  display: block;
+  font-size: 18px;
+}
+
+.icon {
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+/* Sección de tarjetas */
+.cards {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 24px 50px;
-  background: #E8E8E8;
-  z-index: 1; 
+  gap: 20px;
 }
 
-.app-container .carousel{
-  border-radius: 50px;
+/* Tarjetas */
+.card {
+  background: #fff;
+  width: 80%;
+  max-width: 350px;
+  height: 60px;
+  border-radius: 10px;
 }
 
-/* 🔹 Quitamos la altura fija que rompía el carrusel */
-/* .app-container img { height: 100px; } */
-
-.app-container .img-logo{
-  height: 150px;
-}
-
-.app-container h1 {
-  font-size: 20px;
-  font-family: cursive;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-.carousel-wrapper {
-  width: 100%;
-
-  max-width: 700px;      /* el tamaño máximo del carrusel */
-  margin: 0 auto;        /* centrado */
-  border-radius: 20px;    /* esquinas redondeadas, no tan exageradas */
-  overflow: hidden;       /* que las imágenes no se salgan */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2); /* opcional: sombra */
-}
-
-.carousel-wrapper .carousel-item img {
-  width: 100%;
-  height: 100%;          /* que ocupe toda la altura del contenedor */
-  object-fit: cover;     /* recorta la imagen sin deformarla */
-  object-position: center;
-  display: block;
-}
-/* Título */
-
-
-/* Responsive */
+/* ======================
+   ESTILOS PC
+   ====================== */
 @media (min-width: 768px) {
-  .search-container h1 {
-    font-size: 1.5rem;
+  .header {
+    padding: 60px 20px 100px;      /* más grande en PC */
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    margin-bottom: 40px;           /* lo baja más */
   }
 
-  .header-text h2 {
-    font-size: 2rem;
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .header span {
+    font-size: 22px;
+  }
+
+  .icon {
+    font-size: 36px;
+  }
+
+  .card {
+    height: 80px;
+    width: 50%;
+    max-width: 500px;
   }
 }
