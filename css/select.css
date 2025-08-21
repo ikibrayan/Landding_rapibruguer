@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: #e6e6e6;
+  background-image: url(../img/background.jpeg);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -37,7 +37,7 @@ body {
 }
 
 .img-header{
-  height: 80px;
+  height: 150px;
 }
 
 
@@ -67,13 +67,40 @@ body {
 }
 
 /* Tarjetas */
+/* Tarjetas como botones */
 .card {
   background: #fff;
-  width: 80%;
-  max-width: 350px;
-  height: 60px;
+  width: 70%;               /* menos largo que antes */
+  max-width: 300px;         /* límite más pequeño */
+  height: 100px;             /* un poco más compacto */
   border-radius: 10px;
+  cursor: pointer;          /* se siente clickeable */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
+
+/* efecto hover */
+.card:hover {
+  background: #ff6600;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* más separación entre botones */
+.cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;   /* separación aumentada */
+}
+
 
 /* ======================
    ESTILOS PC
