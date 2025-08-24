@@ -1,7 +1,7 @@
 .map-container {
   flex: 1;
   height: 100%;
-  background: #1b1f34;
+  background-image: url(../img/background.jpeg);
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -16,7 +16,7 @@
 }
 
 .map-title {
-  color: white;
+  color: black;
   margin-bottom: 16px;
   text-align: center;
   font-size: 1.2rem;

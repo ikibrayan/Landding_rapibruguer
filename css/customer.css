@@ -6,7 +6,7 @@
 }
 
 body {
-  background: white;
+  background-image: url(../img/background.jpeg) ;
   font-family: 'Segoe UI', sans-serif;
   height: 100vh;
   margin: 0;
@@ -37,7 +37,7 @@ body {
 }
 
 .logo{
-  background: white;
+  background-image: url(../img/background.jpeg);
   display: flex;
   justify-content: center;
 }
@@ -55,7 +55,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: white;
+  background-image: url(../img/background.jpeg);
   display: flex-start;
   flex-direction: column;
   justify-content: center;

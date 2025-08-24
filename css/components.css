@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #cfd5e2;
+  background-image: url(../img/background.jpeg);
   font-family: 'Segoe UI', sans-serif;
   height: 100vh;
   display: flex;
@@ -43,7 +43,7 @@ body {
   gap: 12px;
   overflow-x: auto;
   padding: 16px;
-  background: #FFFFF5;
+  background-image: url(../img/background.jpeg);
   justify-content: center;
 }
 
@@ -96,7 +96,7 @@ body {
 
 /* Items */
 .cart-items {
-  background: #FFFFF5;
+  background-image: url(../img/background.jpeg);
   flex: 1;
   overflow-y: auto;
   padding: 16px;
@@ -107,7 +107,7 @@ body {
 
 .cart-item {
   display: flex;
-  background: #FFFFF5;
+  background: #F5f5f5;
   padding: 12px;
   border-radius: 16px;
   gap: 12px;

@@ -5,7 +5,7 @@
   }
   
   body {
-    background: #1b1f34; /* Azul oscuro como fondo general */
+    background-image: url(../img/background.jpeg) ; /* Azul oscuro como fondo general */
     font-family: 'Segoe UI', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -14,8 +14,8 @@
   
   /* Header */
   .offers-header {
-    background: #2a2f47;
-    color: white;
+    background: black;
+    color: orange;
     display: flex;
     align-items: center;
     padding: 16px;
@@ -25,7 +25,7 @@
   .offers-header .back-button {
     background: none;
     border: none;
-    color: white;
+    color: orange;
     font-size: 1.5rem;
     margin-right: 16px;
     cursor: pointer;
@@ -46,10 +46,10 @@
   }
   
   .offer-card {
-    background: #2e3350; /* Azul intermedio para las cards */
+    background: #F5f5f5; /* Azul intermedio para las cards */
     border-radius: 16px;
     overflow: hidden;
-    color: white;
+    color: black;
     display: flex;
     flex-direction: column;
   }
@@ -71,7 +71,7 @@
   
   .offer-info p {
     font-size: 0.85rem;
-    color: #aaa;
+    color: black;
     margin-bottom: 12px;
   }
   
@@ -87,7 +87,7 @@
   }
   
   .buy-btn {
-    background: #ff7d90;
+    background: orange;
     color: white;
     border: none;
     padding: 8px 14px;
@@ -98,7 +98,7 @@
   }
   
   .buy-btn:hover {
-    background: #e76378;
+    background: orange;
   }
   
   /* Responsive */
