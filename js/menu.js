@@ -92,21 +92,50 @@ const productos = [
   }
 ];
 
-
-// Lista de productos filtrados para mostrar
+// =============================
+// Productos
+// =============================
 let productosFiltrados = [...productos];
 
 // Carrito: clave = índice del producto, valor = cantidad
-const carrito = {};
+let carrito = {};
 
-// Renderiza los productos en el carrito
+// =============================
+// Formateador a pesos colombianos
+// =============================
+const formatoCOP = new Intl.NumberFormat("es-CO", {
+  style: "currency",
+  currency: "COP",
+  minimumFractionDigits: 0
+});
+
+// =============================
+// Restaurar datos guardados
+// =============================
+const carritoGuardado = sessionStorage.getItem('carrito');
+if (carritoGuardado) {
+  carrito = JSON.parse(carritoGuardado);
+}
+
+const pedidoGuardado = sessionStorage.getItem('pedido');
+if (pedidoGuardado) {
+  const pedido = JSON.parse(pedidoGuardado);
+  pedido.resumen.forEach(item => {
+    const index = productos.findIndex(p => p.nombre === item.nombre);
+    if (index !== -1) carrito[index] = item.cantidad;
+  });
+}
+
+// =============================
+// Renderizado del carrito
+// =============================
 function renderCarrito() {
   const contenedor = document.querySelector('.cart-items');
   contenedor.innerHTML = '';
 
   productosFiltrados.forEach((producto) => {
     const index = productos.indexOf(producto);
-    if (!(index in carrito)) carrito[index] = 1;
+    const cantidad = carrito[index] || 0;
 
     const item = document.createElement('div');
     item.className = 'cart-item';
@@ -116,10 +145,10 @@ function renderCarrito() {
         <h3>${producto.nombre}</h3>
         <p>${producto.descripcion}</p>
         <div class="bottom">
-          <span>$ ${(producto.precio / 100).toFixed(2)}</span>
+          <span>${formatoCOP.format(producto.precio)}</span>
           <div class="qty">
             <button class="menos" data-id="${index}">−</button>
-            <span id="cant_${index}">${carrito[index]}</span>
+            <span id="cant_${index}">${cantidad}</span>
             <button class="mas" data-id="${index}">+</button>
           </div>
         </div>
@@ -140,33 +169,43 @@ function renderCarrito() {
   actualizarTotal();
 }
 
-// Cambia la cantidad de un producto en el carrito
+// =============================
+// Cambiar cantidad
+// =============================
 function cambiarCantidad(index, delta) {
-  carrito[index] = Math.max(1, (carrito[index] || 1) + delta);
+  carrito[index] = Math.max(0, (carrito[index] || 0) + delta);
   document.getElementById(`cant_${index}`).textContent = carrito[index];
   actualizarTotal();
 }
 
-// Calcula y muestra el total del carrito
+// =============================
+// Calcular y actualizar total
+// =============================
 function actualizarTotal() {
   let total = 0;
   for (const i in carrito) {
-    total += productos[i].precio * carrito[i];
+    const index = parseInt(i, 10); // 👈 convertir clave a número
+    if (productos[index]) {
+      total += productos[index].precio * carrito[i];
+    }
   }
 
-  const totalTexto = document.querySelector('.cart-footer span');
+  const totalTexto = document.getElementById('total-price');
   if (totalTexto) {
-    totalTexto.textContent = `$${(total / 100).toFixed(2)}`;
+    totalTexto.textContent = formatoCOP.format(total);
   }
+
+  // Guardar carrito en sessionStorage
+  sessionStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-// Filtra productos por categoría
+// =============================
+// Filtro de categorías
+// =============================
 function filtrarBotonCategoria(boton, categoria) {
-  // Cambia visualmente el botón activo
   document.querySelectorAll('.categoria-btn').forEach(btn => btn.classList.remove('active'));
   boton.classList.add('active');
-
-  // Llama tu función original
+  localStorage.setItem('categoriaSeleccionada', categoria);
   filtrarCategoria(categoria);
 }
 
@@ -175,32 +214,57 @@ function filtrarCategoria(categoria) {
   renderCarrito();
 }
 
-
-
-// Evento del botón "Realizar Pedido"
+// =============================
+// Evento de Realizar Pedido
+// =============================
 document.querySelector('.pay').addEventListener('click', () => {
   const resumen = [];
   let total = 0;
 
   for (const i in carrito) {
-    const producto = productos[i];
+    const index = parseInt(i, 10);
+    const producto = productos[index];
     const cantidad = carrito[i];
-    const subtotal = producto.precio * cantidad;
+    if (producto && cantidad > 0) {
+      const subtotal = producto.precio * cantidad;
 
-    resumen.push({
-      nombre: producto.nombre,
-      cantidad,
-      subtotal
-    });
+      resumen.push({
+        nombre: producto.nombre,
+        cantidad,
+        subtotal
+      });
 
-    total += subtotal;
+      total += subtotal;
+    }
   }
 
   const pedido = { resumen, total };
+
+  // Guardar en localStorage y sessionStorage
   localStorage.setItem('pedido', JSON.stringify(pedido));
+  sessionStorage.setItem('pedido', JSON.stringify(pedido));
+
+  // No limpiamos el carrito para que siga al volver atrás
   window.location.href = 'customer.html';
 });
 
-// Iniciar la vista
-renderCarrito();
+// =============================
+// Inicialización al cargar
+// =============================
+const categoriaGuardada = localStorage.getItem('categoriaSeleccionada');
 
+if (categoriaGuardada) {
+  const boton = [...document.querySelectorAll('.categoria-btn')]
+    .find(btn => btn.getAttribute('onclick').includes(categoriaGuardada));
+
+  if (boton) {
+    boton.classList.add('active');
+    filtrarCategoria(categoriaGuardada);
+  } else {
+    productosFiltrados = [...productos];
+    renderCarrito();
+  }
+} else {
+  productosFiltrados = [...productos];
+  renderCarrito();
+}

@@ -49,6 +49,7 @@ body {
 
 h3{
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 
@@ -146,5 +147,19 @@ h3{
 @media screen and (min-width: 768px) {
   .formulario {
     max-width: 600px;
+  }
+
+  .form-wrapper {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/background.jpeg);
+    display: flex;               /* ✅ corregido */
+    flex-direction: column;
+    justify-content: center;     /* ✅ centra vertical */
+    align-items: center;         /* ✅ centra horizontal */
+    text-align: center;
+    padding: 24px;
   }
 }

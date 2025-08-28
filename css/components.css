@@ -252,4 +252,13 @@ body {
     padding: 24px 48px;
     justify-content: space-between;
   }
+
+  .info {
+    height: auto;     /* 👈 quitar altura fija en PC */
+    /* 👈 opcional: asegura equilibrio visual */
+  }
+
+  .bottom {
+    margin-top: auto;     /* 👈 empuja precio+botones hacia abajo */
+  }
 }

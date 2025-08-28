@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cart UI</title>
+  <title>Menú</title>
   <link rel="stylesheet" href="./css/components.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
@@ -14,40 +14,35 @@
     <h2>MENÚ</h2>
   </div>
 
- <!-- CATEGORÍAS -->
+  <!-- CATEGORÍAS -->
+  <div class="categorias-container">
+    <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'hamburguesa')">
+      <img src="./img/burguer.png" />
+      <span>Burger</span>
+    </button>
+    <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'pizza')">
+      <img src="./img/pizza.png"/>
+      <span>Pizza</span>
+    </button>
+    <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'burrito')">
+      <img src="./img/wrap.png"/>
+      <span>Steak</span>
+    </button>
+    <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'taco')">
+      <img src="./img/chicken-leg.png" alt="Chicken" />
+      <span>Chicken</span>
+    </button>
+  </div>
 
-<div class="categorias-container">
-  <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'hamburguesa')">
-    <img src="./img/burguer.png" />
-    <span>Burger</span>
-  </button>
-  <button class="categoria-btn active" onclick="filtrarBotonCategoria(this, 'pizza')">
-     <img src="./img/pizza.png"/>
-    <span>Pizza</span>
-  </button>
-  <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'burrito')">
-     <img src="./img/wrap.png"/>
-    <span>Steak</span>
-  </button>
-  <button class="categoria-btn" onclick="filtrarBotonCategoria(this, 'taco')">
-    <img src="./img/chicken-leg.png" alt="Chicken" />
-    <span>Chicken</span>
-  </button>
-</div>
-
-
-
-
-
+  <!-- Productos dinámicos -->
   <div class="cart-items"></div>
 
   <!-- FOOTER -->
   <div class="cart-footer">
-    <span>$28.55</span>
+    <span id="total-price">$0</span>
     <button class="pay">Realizar Pedido <i class="fa-brands fa-whatsapp"></i></button>
   </div>
 
-
-    <script src="./js/menu.js"></script>
+  <script src="./js/menu.js"></script>
 </body>
 </html>

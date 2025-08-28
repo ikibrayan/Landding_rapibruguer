@@ -20,14 +20,21 @@ function finalizarPedido() {
     return;
   }
 
+  // 🔹 Formateador COP
+  const formatoCOP = new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    minimumFractionDigits: 0
+  });
+
   let mensaje = `Hola, quiero hacer un pedido:\n`;
 
   if (!esOferta) {
     pedido.resumen.forEach(item => {
-      mensaje += `• ${item.nombre} x${item.cantidad} – $${(item.subtotal / 100).toLocaleString()}\n`;
+      mensaje += `• ${item.nombre} x${item.cantidad} – ${formatoCOP.format(item.subtotal)}\n`;
     });
 
-    mensaje += `\nTotal: $${(pedido.total / 100).toLocaleString()}\n`;
+    mensaje += `\nTotal: ${formatoCOP.format(pedido.total)}\n`;
   } else {
     mensaje += `Esta es una solicitud de oferta directa sin productos seleccionados.\n`;
   }
@@ -38,9 +45,12 @@ function finalizarPedido() {
   mensaje += `\n🚚 Tipo de entrega: ${entrega}`;
   mensaje += `\n💳 Método de pago: ${pago}`;
 
-  const numero = '15551553934'; // Reemplaza con el número real
+  const numero = '3205510535'; // Reemplaza con el número real
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
+  // 🔹 Limpiar pedido después de enviarlo
   localStorage.removeItem("pedido");
+  sessionStorage.removeItem("pedido");
+
   window.open(url, '_blank');
 }
