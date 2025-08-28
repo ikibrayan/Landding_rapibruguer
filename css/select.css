@@ -58,7 +58,6 @@ body {
 
 /* Tarjetas como botones */
 .card {
-  background: black;
   width: 70%;               /* menos largo que antes */
   max-width: 300px;         /* límite más pequeño */
   height: 100px;             /* un poco más compacto */
@@ -69,8 +68,11 @@ body {
   align-items: center;
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: 20px;
   transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.card .menu {
+  background-image: url(../img/menu.jpeg);
 }
 
 /* efecto hover */
