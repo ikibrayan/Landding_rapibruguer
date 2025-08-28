@@ -58,6 +58,7 @@ body {
 
 /* Tarjetas como botones */
 .card {
+  background: black;
   width: 70%;               /* menos largo que antes */
   max-width: 300px;         /* límite más pequeño */
   height: 100px;             /* un poco más compacto */
