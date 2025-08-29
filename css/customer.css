@@ -6,7 +6,7 @@
 }
 
 body {
-  background-image: url(../img/background.jpeg) ;
+  background-image: url(../img/background.webp) ;
   font-family: 'Segoe UI', sans-serif;
   height: 100vh;
   margin: 0;
@@ -37,7 +37,7 @@ body {
 }
 
 .logo{
-  background-image: url(../img/background.jpeg);
+  background-image: url(../img/background.webp);
   display: flex;
   justify-content: center;
 }
@@ -60,7 +60,7 @@ h3{
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url(../img/background.jpeg);
+  background-image: url(../img/background.webp);
   display: flex-start;
   flex-direction: column;
   justify-content: center;
@@ -154,12 +154,16 @@ h3{
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url(../img/background.jpeg);
+    background-image: url(../img/background.webp);
     display: flex;               /* ✅ corregido */
     flex-direction: column;
     justify-content: center;     /* ✅ centra vertical */
     align-items: center;         /* ✅ centra horizontal */
     text-align: center;
     padding: 24px;
+  }
+
+  .logo {
+    margin-top: 100px;
   }
 }

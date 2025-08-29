@@ -4,7 +4,7 @@ const productos = [
     nombre: 'Hamburguesa de Res',
     precio: 15000,
     descripcion: 'Jugosa hamburguesa con carne de res y vegetales frescos.',
-    imagen: 'img/burguer.webp'
+    imagen: 'img/burguer-clasic.webp'
   },
   {
     categoria: 'hamburguesa',

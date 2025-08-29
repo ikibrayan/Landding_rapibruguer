@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url(../img/background.jpeg);
+  background-image: url(../img/background.webp);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -70,6 +70,11 @@ body {
   font-weight: bold;
   font-size: 16px;
   transition: transform 0.2s ease, background 0.2s ease;
+
+    /* 🔑 Ajuste de la imagen de fondo */
+  background-size: cover;       /* que se adapte sin deformar */
+  background-position: center;  /* centrada */
+  background-repeat: no-repeat;
 }
 
 .card .menu {
@@ -80,7 +85,6 @@ body {
 .card:hover {
   background: #ff6600;
   color: #fff;
-  transform: scale(1.05);
 }
 
 /* más separación entre botones */
