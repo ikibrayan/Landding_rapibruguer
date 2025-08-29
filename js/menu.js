@@ -32,7 +32,7 @@ const productos = [
     nombre: 'Pizza Pepperoni',
     precio: 25000,
     descripcion: 'Pizza con pepperoni y queso mozzarella fundido.',
-    imagen: 'img/pizza.webp'
+    imagen: 'img/pizza-clasic.webp'
   },
   {
     categoria: 'pizza',
