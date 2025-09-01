@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ofertas</title>
+  <link rel="stylesheet" href="./css/offers.css" />
+  <!-- Iconos de Font Awesome (para el ícono de WhatsApp) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="offers-header">
+    <a href="./select.html" class="back-button">←</a>
+    <h2>OFERTAS</h2>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="offers-container">
+    <!-- Oferta 1 -->
+    <div class="offer-card">
+      <img src="./img/offer-1.webp" alt="Oferta 1">
+      <div class="offer-info">
+        <h3>Combo Especial</h3>
+        <p>Hamburguesa + papas + bebida</p>
+        <div class="price-row">
+          <!-- data-price en COP (sin puntos ni comas), texto en formato pesos -->
+          <span class="price" data-price="9900">$9.900</span>
+          <div class="qty">
+            <button class="menos" data-id="offer_combo">−</button>
+            <span id="cant_offer_combo">0</span>
+            <button class="mas" data-id="offer_combo">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oferta 2 -->
+    <div class="offer-card">
+      <img src="./img/offer-2.webp" alt="Oferta 2">
+      <div class="offer-info">
+        <h3>Pizza Mediana 2x1</h3>
+        <p>¡Solo hoy!</p>
+        <div class="price-row">
+          <span class="price" data-price="14900">$14.900</span>
+          <div class="qty">
+            <button class="menos" data-id="offer_pizza">−</button>
+            <span id="cant_offer_pizza">0</span>
+            <button class="mas" data-id="offer_pizza">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="cart-footer">
+    <span id="total-price">$0</span>
+    <button class="pay">Realizar Pedido <i class="fa-brands fa-whatsapp"></i></button>
+  </div>
+
+  <!-- Script -->
+  <script src="./js/offers.js"></script>
+</body>
+</html>
