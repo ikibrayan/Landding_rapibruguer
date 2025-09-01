@@ -45,7 +45,7 @@ function finalizarPedido() {
   mensaje += `\n🚚 Tipo de entrega: ${entrega}`;
   mensaje += `\n💳 Método de pago: ${pago}`;
 
-  const numero = '3205510535'; // Reemplaza con el número real
+  const numero = '+573001706295'; // Reemplaza con el número real
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
   // 🔹 Limpiar pedido después de enviarlo
