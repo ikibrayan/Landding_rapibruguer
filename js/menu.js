@@ -93,7 +93,11 @@ const productos = [
 ];
 
 // =============================
-// Productos
+// Productos (ya definidos antes)
+// =============================
+
+// =============================
+// Variables y configuraciones
 // =============================
 let productosFiltrados = [...productos];
 
@@ -215,7 +219,7 @@ function filtrarCategoria(categoria) {
 }
 
 // =============================
-// Evento de Realizar Pedido
+// Evento de Realizar Pedido (corregido)
 // =============================
 document.querySelector('.pay').addEventListener('click', () => {
   const resumen = [];
@@ -244,8 +248,12 @@ document.querySelector('.pay').addEventListener('click', () => {
   localStorage.setItem('pedido', JSON.stringify(pedido));
   sessionStorage.setItem('pedido', JSON.stringify(pedido));
 
-  // No limpiamos el carrito para que siga al volver atrás
-  window.location.href = 'customer.html';
+  // ✅ En lugar de ir a customer.html, abrimos el panel del formulario
+  const overlay = document.getElementById('formOverlay');
+  if (overlay) {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 });
 
 // =============================
@@ -268,3 +276,4 @@ if (categoriaGuardada) {
   productosFiltrados = [...productos];
   renderCarrito();
 }
+
