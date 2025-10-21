@@ -6,8 +6,8 @@
   width: 100%;
   height: auto;
   max-height: 85%;
-  background: #0f0f0f;
-  color: #fff;
+  background: #F8F8F8;
+  color: black;
   border-radius: 25px 25px 0 0;
   box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.6);
   transition: bottom 0.4s ease-in-out;
@@ -32,14 +32,15 @@
 .headerForm h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #fff;
+  color: black;
 }
 
 .headerForm button {
   background: none;
   border: none;
   font-size: 1.8rem;
-  color: #fff;
+  color: black;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
 }
@@ -50,10 +51,9 @@
 
 /* ===== FORMULARIO INTERIOR ===== */
 .formulario {
-  background: #1c1c1c;
+  background: #F8F8F8;
   border-radius: 20px;
   padding: 15px 18px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 
 /* ===== LISTA DE PRODUCTOS (DINÁMICA Y EXPANDIBLE) ===== */
@@ -73,16 +73,15 @@
   gap: 10px;
   padding: 6px 10px;
   border-radius: 10px;
-  background: #1c1c1c;
+  background: white;
   min-height: 20px;
-  box-sizing: border-box;
-  height: 40px;
+  height: 60px;
 }
 
 .producto-item .img-wrapper {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
 .producto-item img {
@@ -96,12 +95,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 20px;
 }
 
 .producto-item .nombre {
   font-weight: 500;
   font-size: 0.9rem;
-  color: #fff;
+  color: black;
   margin: 0;
   line-height: 1.2;
 }
@@ -123,10 +123,12 @@
 
 .total-linea span {
   font-size: 1rem;
+  font-weight: bold;
 }
 
 .total-linea strong {
   font-size: 1.1rem;
+  font-weight: bold;
 }
 
 /* ===== INPUTS ===== */
@@ -136,15 +138,16 @@
   margin-bottom: 6px;
   font-weight: 500;
   font-size: 0.95rem;
+  font-weight: bold;
 }
 
 .formulario input,
 .formulario textarea,
 .formulario select {
   width: 100%;
-  background: #2a2a2a;
-  border: 1px solid #333;
-  color: #fff;
+  background: white;
+  border: 1px solid black;
+  color: black;
   border-radius: 10px;
   padding: 10px;
   font-size: 0.95rem;
