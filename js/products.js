@@ -1,3 +1,5 @@
+console.log("✅ products.js cargado");
+
 const formatoCOP = new Intl.NumberFormat("es-CO", {
   style: "currency",
   currency: "COP",
@@ -9,42 +11,53 @@ if (!producto) window.location.href = "menu.html";
 
 let carrito = JSON.parse(sessionStorage.getItem("carrito")) || [];
 
+// === Referencias DOM ===
 const nombreEl = document.getElementById("nombreProducto");
 const descripcionEl = document.getElementById("descripcionProducto");
 const cantidadEl = document.getElementById("cantidad");
 const agregarBtn = document.getElementById("agregarBtn");
 
-let cantidad = 1;
-let opcionSeleccionada = "";
-let observacionGuardada = "";
+let cantidad = producto.cantidad || 1;
+let precioExtra = 0;
+let gaseosaSeleccionada = false;
 
-// Buscar si el producto ya estaba en carrito
-const existente = carrito.find(p => p.id === producto.id);
-if (existente) {
-  cantidad = existente.cantidad;
-  opcionSeleccionada = existente.opcion || "";
-  observacionGuardada = existente.observacion || "";
-}
-
+// === Mostrar datos producto ===
 nombreEl.textContent = producto.nombre;
 descripcionEl.textContent = producto.descripcion;
 cantidadEl.textContent = cantidad;
 
-if (observacionGuardada) {
-  document.getElementById("observacion").value = observacionGuardada;
+// === Agregar opción gaseosa dinámica ===
+const gaseosaDiv = document.createElement("div");
+gaseosaDiv.classList.add("opcion-item");
+gaseosaDiv.innerHTML = `
+  <label>
+    <input type="checkbox" id="gaseosa" value="gaseosa"> Agregar gaseosa
+  </label>
+  <span class="precio">$4.000</span>
+`;
+document.querySelector(".opciones").appendChild(gaseosaDiv);
+
+const gaseosaInput = document.getElementById("gaseosa");
+
+// === Recuperar producto existente (si lo hay) ===
+const existente = carrito.find(p => p.nombre === producto.nombre);
+if (existente) {
+  cantidad = existente.cantidad || 1;
+  gaseosaSeleccionada = existente.gaseosa || false;
+  precioExtra = gaseosaSeleccionada ? 4000 : 0;
+  gaseosaInput.checked = gaseosaSeleccionada;
+  document.getElementById("observacion").value = existente.observacion || "";
+  cantidadEl.textContent = cantidad;
 }
 
-if (opcionSeleccionada) {
-  const opcionInput = document.querySelector(`input[value="${opcionSeleccionada}"]`);
-  if (opcionInput) opcionInput.checked = true;
-}
-
+// === Actualizar botón ===
 function actualizarBoton() {
-  const total = producto.precio * cantidad;
+  const total = (producto.precio + precioExtra) * cantidad;
   agregarBtn.textContent = `Guardar ${formatoCOP.format(total)}`;
 }
 actualizarBoton();
 
+// === Eventos ===
 document.getElementById("mas").addEventListener("click", () => {
   cantidad++;
   cantidadEl.textContent = cantidad;
@@ -57,29 +70,39 @@ document.getElementById("menos").addEventListener("click", () => {
   actualizarBoton();
 });
 
+gaseosaInput.addEventListener("change", (e) => {
+  gaseosaSeleccionada = e.target.checked;
+  precioExtra = gaseosaSeleccionada ? 4000 : 0;
+  actualizarBoton();
+});
+
 document.getElementById("cerrar").addEventListener("click", () => {
   window.location.href = "menu.html";
 });
 
+// === Guardar producto ===
 agregarBtn.addEventListener("click", () => {
   const observacion = document.getElementById("observacion").value || "";
-  const opcion = document.querySelector('input[name="tipo"]:checked')?.value || "";
+  const opcion = document.querySelector('input[name="tipo"]:checked')?.value || "default";
 
-  const existente = carrito.find(p => p.id === producto.id);
-  if (existente) {
-    existente.cantidad = cantidad;
-    existente.opcion = opcion;
-    existente.observacion = observacion;
-  } else {
-    carrito.push({
-      id: producto.id,
-      nombre: producto.nombre,
-      precio: producto.precio,
-      cantidad,
-      opcion,
-      observacion
-    });
-  }
+  const index = carrito.findIndex(p => p.nombre === producto.nombre);
+  const infoGaseosa = gaseosaSeleccionada ? "Con gaseosa" : "Sin gaseosa";
+
+  const totalFinal = producto.precio + precioExtra;
+
+  const itemData = {
+    id: producto.id,
+    nombre: producto.nombre,
+    precio: totalFinal, // 🔹 guarda el precio actualizado
+    cantidad,
+    opcion,
+    observacion,
+    gaseosa: gaseosaSeleccionada,
+    infoGaseosa
+  };
+
+  if (index !== -1) carrito[index] = itemData;
+  else carrito.push(itemData);
 
   sessionStorage.setItem("carrito", JSON.stringify(carrito));
   window.location.href = "menu.html";
