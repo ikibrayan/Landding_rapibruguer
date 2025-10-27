@@ -149,7 +149,7 @@
 .formulario input:focus,
 .formulario textarea:focus,
 .formulario select:focus {
-  border-color: #25D366;
+  border-color: orange;
   outline: none;
 }
 
