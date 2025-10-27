@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seleccionar adicionales</title>
+  <link rel="stylesheet" href="./css/products.css">
+</head>
+<body>
+  <div class="product-detail">
+    <button class="close-btn" id="cerrar">×</button>
+
+    <h2 id="nombreProducto"></h2>
+    <p id="descripcionProducto"></p>
+
+    <div class="opciones">
+      <div class="opcion-header">
+        <span class="maximo">MÁXIMO: 1</span>
+        <span class="opcional">OPCIONAL</span>
+      </div>
+      <div class="opcion-item">
+        <label>
+          <input type="radio" name="tipo" value="apanado" checked> Apanado
+        </label>
+        <span class="precio">$1.000</span>
+      </div>
+      <div class="opcion-item">
+        <label>
+          <input type="radio" name="tipo" value="frito"> Frito
+        </label>
+        <span class="precio">$1.000</span>
+      </div>
+    </div>
+
+    <div class="observaciones">
+      <div class="header">
+        <h3>Observaciones</h3>
+        <span class="opcional">OPCIONAL</span>
+      </div>
+      <textarea id="observacion" placeholder="Observaciones"></textarea>
+    </div>
+
+    <div class="footer">
+      <div class="qty-control">
+        <button id="menos">−</button>
+        <span id="cantidad">1</span>
+        <button id="mas">+</button>
+      </div>
+      <button id="agregarBtn">Agregar</button>
+    </div>
+  </div>
+</body>
+  <script src="./js/products.js"></script>
+</html>

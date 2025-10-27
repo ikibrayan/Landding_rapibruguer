@@ -1,19 +1,18 @@
-/* ===== PANEL DESPLEGABLE ===== */
+/* === PANEL FLOTANTE === */
 .overlay {
   position: fixed;
   bottom: -100%;
   left: 0;
   width: 100%;
-  height: auto;
-  max-height: 85%;
-  background: #F8F8F8;
-  color: black;
-  border-radius: 25px 25px 0 0;
-  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.6);
+  max-height: 80%;
+  background: #fff;
+  color: #222;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.25);
   transition: bottom 0.4s ease-in-out;
   z-index: 1000;
   overflow-y: auto;
-  padding: 25px 18px;
+  padding: 25px 20px 35px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -21,73 +20,70 @@
   bottom: 0;
 }
 
-/* ===== CABECERA ===== */
+/* === CABECERA === */
 .headerForm {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .headerForm h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: black;
+  color: #111;
+  margin: 0;
 }
 
 .headerForm button {
   background: none;
   border: none;
-  font-size: 1.8rem;
-  color: black;
-  font-weight: bold;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #444;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.25s;
 }
 
 .headerForm button:hover {
   color: #25D366;
 }
 
-/* ===== FORMULARIO INTERIOR ===== */
+/* === CONTENEDOR DEL FORM === */
 .formulario {
-  background: #F8F8F8;
-  border-radius: 20px;
-  padding: 15px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* ===== LISTA DE PRODUCTOS (DINÁMICA Y EXPANDIBLE) ===== */
+/* === PRODUCTOS === */
 .resumen-pedido {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 15px;
-  height: auto; /* 👈 clave: permite crecimiento dinámico */
-  max-height: none;
+  gap: 8px;
 }
 
 .producto-item {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  padding: 6px 10px;
-  border-radius: 10px;
-  background: white;
-  min-height: 20px;
-  height: 60px;
+  gap: 12px;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  height: 70px;
 }
 
 .producto-item .img-wrapper {
-  flex-shrink: 0;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .producto-item img {
   width: 100%;
   height: 100%;
-  border-radius: 8px;
   object-fit: cover;
 }
 
@@ -95,62 +91,66 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 20px;
 }
 
 .producto-item .nombre {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.producto-item .precio {
   font-size: 0.9rem;
-  color: black;
-  margin: 0;
-  line-height: 1.2;
+  color: #555;
 }
 
-/* Línea divisoria opcional */
-.resumen-pedido .producto-item + .producto-item {
-  border-top: 1px solid #222;
-}
-
-/* ===== TOTAL ===== */
+/* === TOTAL === */
 .total-linea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 0 20px 0;
-  border-top: 1px solid #333;
+  margin-top: 5px;
+  border-top: 1px solid #eee;
   padding-top: 10px;
 }
 
 .total-linea span {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
+  color: #333;
 }
 
 .total-linea strong {
   font-size: 1.1rem;
-  font-weight: bold;
+  color: #111;
 }
 
-/* ===== INPUTS ===== */
+/* === LABELS E INPUTS === */
 .formulario label {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 6px;
+  font-size: 0.9rem;
   font-weight: 500;
-  font-size: 0.95rem;
-  font-weight: bold;
+  color: #333;
 }
 
 .formulario input,
 .formulario textarea,
 .formulario select {
   width: 100%;
-  background: white;
-  border: 1px solid black;
-  color: black;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #111;
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 12px;
   font-size: 0.95rem;
+  transition: border-color 0.25s;
+}
+
+.formulario input:focus,
+.formulario textarea:focus,
+.formulario select:focus {
+  border-color: #25D366;
+  outline: none;
 }
 
 .formulario textarea {
@@ -158,7 +158,7 @@
   height: 70px;
 }
 
-/* ===== BOTÓN ENVIAR ===== */
+/* === BOTÓN === */
 .enviar {
   width: 100%;
   background-color: #25D366;
@@ -166,11 +166,11 @@
   border: none;
   padding: 14px;
   font-size: 1rem;
-  font-weight: 500;
-  border-radius: 10px;
+  font-weight: 600;
+  border-radius: 12px;
   cursor: pointer;
-  margin-top: 15px;
-  transition: 0.25s;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
 }
 
 .enviar:hover {
