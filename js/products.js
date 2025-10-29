@@ -17,6 +17,16 @@ const descripcionEl = document.getElementById("descripcionProducto");
 const cantidadEl = document.getElementById("cantidad");
 const agregarBtn = document.getElementById("agregarBtn");
 
+// 🔹 Nuevo botón para eliminar producto (si no existe, se crea dinámicamente)
+let eliminarBtn = document.getElementById("eliminarBtn");
+if (!eliminarBtn) {
+  eliminarBtn = document.createElement("button");
+  eliminarBtn.id = "eliminarBtn";
+  eliminarBtn.classList.add("eliminar");
+  eliminarBtn.textContent = "Eliminar producto";
+  agregarBtn.insertAdjacentElement("afterend", eliminarBtn);
+}
+
 let cantidad = producto.cantidad || 1;
 let precioExtra = 0;
 let gaseosaSeleccionada = false;
@@ -105,5 +115,17 @@ agregarBtn.addEventListener("click", () => {
   else carrito.push(itemData);
 
   sessionStorage.setItem("carrito", JSON.stringify(carrito));
+  window.location.href = "menu.html";
+});
+
+// === Eliminar producto ===
+eliminarBtn.addEventListener("click", () => {
+  const index = carrito.findIndex(p => p.nombre === producto.nombre);
+
+  if (index !== -1) {
+    carrito.splice(index, 1); // elimina solo ese producto
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+  } 
+
   window.location.href = "menu.html";
 });
